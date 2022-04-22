@@ -1,14 +1,12 @@
 package com.example.aplikasisqlite.database;
+import java.io.Serializable;
 
-public class Teman {
+public class Teman implements Serializable {
     String id;
     String nama;
     String telpon;
 
     public Teman() {
-    }
-
-    public Teman(String id, String nama, String telpon) {
         this.id = id;
         this.nama = nama;
         this.telpon = telpon;

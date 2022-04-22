@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class DBController extends SQLiteOpenHelper {
-
     public DBController(Context context) {
         super(context, "ProdiTI", null, 1);
     }
@@ -21,7 +20,6 @@ public class DBController extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table teman (id integer primary key, nama text, telpon text)");
     }
-
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -50,7 +48,9 @@ public class DBController extends SQLiteOpenHelper {
     public void DeleteData(HashMap<String, String> queryValue){
         SQLiteDatabase db = getWritableDatabase();
         db.delete("teman", "id=?", new String[]{queryValue.get("id")});
+        db.close();
     }
+
     public ArrayList<HashMap<String,String>>getAllTeman(){
         ArrayList<HashMap<String,String>> daftarTeman;
         daftarTeman = new ArrayList<HashMap<String,String>>();
@@ -66,7 +66,6 @@ public class DBController extends SQLiteOpenHelper {
                 daftarTeman.add(map);
             }while (cursor.moveToNext());
         }
-
         db.close();
         return daftarTeman;
     }

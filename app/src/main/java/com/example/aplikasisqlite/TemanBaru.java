@@ -27,7 +27,7 @@ public class TemanBaru extends AppCompatActivity {
         tNama = (TextInputEditText) findViewById(R.id.tietNama);
         tTelpon = (TextInputEditText) findViewById(R.id.tietTelpon);
         simpanBtn = (Button) findViewById(R.id.buttonSave);
-        //button
+
         simpanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,7 +40,6 @@ public class TemanBaru extends AppCompatActivity {
                     HashMap<String,String> qvalues = new HashMap<>();
                     qvalues.put("nama",nm);
                     qvalues.put("telpon",tlp);
-
 
                     controller.insertData(qvalues);
                     callHome();

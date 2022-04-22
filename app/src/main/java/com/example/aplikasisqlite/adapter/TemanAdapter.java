@@ -34,7 +34,6 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
         this.listData = listData;
     }
 
-
     @Override
     public TemanViewHolder onCreateViewHolder( ViewGroup parent, int viewType) {
         LayoutInflater layoutInf = LayoutInflater.from(parent.getContext());
@@ -47,7 +46,8 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
     @Override
     public void onBindViewHolder(TemanAdapter.TemanViewHolder holder, int position) {
         //deklarasi variabel
-        String nm,tlp, id;
+        String id,nm, tlp;
+
         id = listData.get(position).getId();
         nm = listData.get(position).getNama();
         tlp = listData.get(position).getTelpon();
@@ -61,16 +61,16 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
         holder.cardku.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                PopupMenu popupMenu = new PopupMenu(control,holder.cardku);
+                PopupMenu popupMenu = new PopupMenu(control, holder.cardku);
                 popupMenu.inflate(R.menu.menu);
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
-                        switch (menuItem.getItemId()){
+                        switch (menuItem.getItemId()) {
                             case R.id.mnEdit:
                                 Intent i = new Intent(control, edit_teman.class);
-                                i.putExtra("id",id);
-                                i.putExtra("nama",nm);
+                                i.putExtra("id", id);
+                                i.putExtra("nama", nm);
                                 i.putExtra("telpon", tlp);
                                 control.startActivity(i);
                                 break;
@@ -87,10 +87,9 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
                 });
                 popupMenu.show();
                 return false;
-
             }
-        });
-    }
+        })
+    ;}
 
 
     @Override

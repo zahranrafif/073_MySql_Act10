@@ -14,7 +14,6 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.util.HashMap;
 
 public class edit_teman extends AppCompatActivity {
-
     TextInputEditText Nama, Telepon;
     Button Save;
     String nma, tlp,id;
@@ -42,7 +41,6 @@ public class edit_teman extends AppCompatActivity {
             public void onClick(View view) {
                 if (Nama.getText().toString().equals("") || Telepon.getText().toString().equals("")){
                     Toast.makeText(getApplicationContext(), "Mohon isi data terlebih dahulu !!!", Toast.LENGTH_LONG).show();
-
                 }else{
                     nma = Nama.getText().toString();
                     tlp = Telepon.getText().toString();

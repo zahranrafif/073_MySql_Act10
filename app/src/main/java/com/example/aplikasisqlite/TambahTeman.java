@@ -29,7 +29,7 @@ public class TambahTeman extends AppCompatActivity {
     String nm, tlp;
     int success;
 
-    private static String url_insert = "http://192.168.100.144/umyTI/tambahtm.php";
+    private static String url_insert = "http://192.168.1.20/umyTI/tambahtm.php";
     private static final String TAG = TambahTeman.class.getSimpleName();
     private static final String TAG_SUCCESS = "success";
 
@@ -46,6 +46,9 @@ public class TambahTeman extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SimpanData();
+                Intent inten = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(inten);
+                finish();
             }
         });
     }
@@ -91,18 +94,12 @@ public class TambahTeman extends AppCompatActivity {
 
                     params.put("nama", nm);
                     params.put("telpon", tlp);
-                    callHome();
 
                     return params;
                 }
             };
             requestQueue.add(strReq);
         }
-    }
-    private void callHome(){
-        Intent i = new Intent(TambahTeman.this,MainActivity.class);
-        startActivity(i);
-        finish();
     }
 }
 

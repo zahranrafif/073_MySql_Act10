@@ -33,7 +33,7 @@ public class EditTeman extends AppCompatActivity {
     String id, nm, tlp, namaEd, telponEd;
     int sukses;
 
-    private static String url_update = "https://20200140073.praktikumtiumy.com/updatetm.php";
+    private static String url_update = "http://192.168.1.20/umyTI/updatetm.php";
     private static final String TAG = EditTeman.class.getSimpleName();
     private static final String TAG_SUCCESS = "success";
 
@@ -82,18 +82,17 @@ public class EditTeman extends AppCompatActivity {
                     } else {
                         Toast.makeText(EditTeman.this, "gagal", Toast.LENGTH_SHORT).show();
                     }
-                    }
-                 catch (JSONException e) {
+                } catch (JSONException e) {
                     e.printStackTrace();
-                }}
-
-        },new Response.ErrorListener() {
+                }
+            }
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Log.e(TAG, "Error : " + error.getMessage());
                 Toast.makeText(EditTeman.this, "Gagal Edit data", Toast.LENGTH_SHORT).show();
             }
-        })
+    })
         {
             @Override
             protected Map<String, String> getParams(){

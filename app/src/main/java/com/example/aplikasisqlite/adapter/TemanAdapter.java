@@ -78,13 +78,13 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
                                 bendel.putString("kunci2",nm);
                                 bendel.putString("kunci3",tlp);
 
-                                Intent intent = new Intent(view.getContext(), EditTeman.class);
-                                intent.putExtras(bendel);
-                                view.getContext().startActivity(intent);
+                                Intent i = new Intent(view.getContext(), EditTeman.class);
+                                i.putExtras(bendel);
+                                view.getContext().startActivity(i);
                                 break;
                             case R.id.hapus:
                                 AlertDialog.Builder alertdb = new AlertDialog.Builder(view.getContext());
-                                alertdb.setTitle("Yakin " +nm+ " akan dihapus?");
+                                alertdb.setTitle("Yakin " +nm+ "akan dihapus?");
                                 alertdb.setMessage("Tekan Ya untuk menghapus");
                                 alertdb.setCancelable(false);
                                 alertdb.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
@@ -116,7 +116,7 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
     }
 
     private void HapusData(final String idx) {
-        String url_update = "https://20200140073.praktikumtiumy.com/deletetm.php";
+        String url_update = "http://192.168.1.20/umyTI/deletetm.php";
         final String TAG = MainActivity.class.getSimpleName();
         final String TAG_SUCCESS = "success";
         final int[] sukses = new int[1];
@@ -128,14 +128,13 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
                 try {
                     JSONObject jObj = new JSONObject(response);
                     sukses[0] = jObj.getInt(TAG_SUCCESS);
-                }
-                catch (JSONException e) {
+                } catch (JSONException e) {
                     e.printStackTrace();
                 }}
-        },new Response.ErrorListener() {
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Error : "+error.getMessage());
+                Log.e(TAG, "Error : " + error.getMessage());
             }
         })
         {
@@ -143,7 +142,6 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap<>();
                 params.put("id",idx);
-
                 return params;
             }
         };

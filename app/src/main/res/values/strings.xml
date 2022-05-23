@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AplikasiSqlite</string>
+    <string name="app_name">AplikasiMySql</string>
     <string name="nama">Nama</string>
     <string name="simpan">Simpan</string>
     <string name="telpon">Telpon</string>

@@ -14,7 +14,7 @@
         android:theme="@style/Theme.AplikasiSqlite"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".EditTeman"/>
+            android:name=".EditTeman"></activity>
         <activity
             android:name=".TambahTeman" />
         <activity
